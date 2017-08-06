@@ -1,0 +1,11 @@
+<!-- IF DON'T HAVE NGIF HERE THEN IT WILL LOOK FOR SELECTED HERO ON PAGE LOAD, WON'T FIND ONE B/C NOTHING HAS BEEN SELECTED YET, AND WILL BREAK SAYING CAN'T FIND UNDEFINED -->
+<div *ngIf="currentSelectedHero">
+  <h1>{{ title }}</h1>
+  <h1>{{ currentSelectedHero.name }} details</h1>
+  <h2>Id: {{ currentSelectedHero.id }}</h2>
+  <div>
+    <label>Name: </label>
+    <!-- 2 way data binding enabled by FormModule -->
+    <input type="text" [(ngModel)]="currentSelectedHero.name" placeholder="name">
+  </div>
+</div>

@@ -1,14 +1,5 @@
-<!-- IF DON'T HAVE NGIF HERE THEN IT WILL LOOK FOR SELECTED HERO ON PAGE LOAD, WON'T FIND ONE B/C NOTHING HAS BEEN SELECTED YET, AND WILL BREAK SAYING CAN'T FIND UNDEFINED -->
-<div *ngIf="selectedHero">
-  <h1>{{ title }}</h1>
-  <h1>{{ selectedHero.name }} details</h1>
-  <h2>Id: {{ selectedHero.id }}</h2>
-  <div>
-    <label>Name: </label>
-    <input type="text" [(ngModel)]="selectedHero.name" placeholder="name">
-  </div>
-</div>
-
+<!-- [] is binding that allows me to pass down currentSelectedHero to child hero.detail -->
+<app-hero-detail [currentSelectedHero]="selectedHero"></app-hero-detail>
 <!-- if add [class.<name of class>] you can add that class when item is selected if it meets a condition -->
 <h2>My Heroes</h2>
 <ul class="heroes">
