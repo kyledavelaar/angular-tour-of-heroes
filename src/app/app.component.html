@@ -1,8 +1,22 @@
-<h1>{{ title }}</h1>
-<h1>{{ hero.name }} details</h1>
-<h2>{{ hero.id }}</h2>
-<div>
-  <label>Name: </label>
-  <input type="text" [(ngModel)]="hero.name" placeholder="name">
+<!-- IF DON'T HAVE NGIF HERE THEN IT WILL LOOK FOR SELECTED HERO ON PAGE LOAD, WON'T FIND ONE B/C NOTHING HAS BEEN SELECTED YET, AND WILL BREAK SAYING CAN'T FIND UNDEFINED -->
+<div *ngIf="selectedHero">
+  <h1>{{ title }}</h1>
+  <h1>{{ selectedHero.name }} details</h1>
+  <h2>Id: {{ selectedHero.id }}</h2>
+  <div>
+    <label>Name: </label>
+    <input type="text" [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
 </div>
+
+<!-- if add [class.<name of class>] you can add that class when item is selected if it meets a condition -->
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes" 
+  (click)="onSelect(hero)"
+  [class.selected]="hero === selectedHero">
+    <span class="badge">{{ hero.id }}</span>
+    {{ hero.name }}
+  </li>
+</ul>
 

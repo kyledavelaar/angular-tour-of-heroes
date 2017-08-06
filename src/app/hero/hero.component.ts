@@ -8,5 +8,4 @@ import { Component, OnInit } from '@angular/core';
 export class HeroComponent {
   id: number;
   name: string;
-
 }
